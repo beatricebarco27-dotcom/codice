@@ -1,5 +1,13 @@
+#i file necessari per l'esame si trovano nella cartella:
+/config/workspace/datiesame
+
+#estrazione dati grezzi dai file .tar.gz all'esame
+mkdir -p rawdata
+tar -xvzf data_resequencing.tar.gz -C rawdata/
+
+#let's start
 ## clone repository
-cd /workspaces/class-variantcalling
+cd /workspaces/class-variantcalling  # /config/workspace/datiesame
 mkdir -p analysis
 cd analysis
 
