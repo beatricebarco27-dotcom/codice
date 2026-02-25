@@ -2,7 +2,7 @@
 /home/gitpod/datiesame
 
 #estrazione dati grezzi dai file .tar.gz all'esame
-mkdir -p rawd_ata
+mkdir -p raw_data
 tar -xvzf data_rnaseq.tar.gz -C raw_data/
 
 #let's start
