@@ -1,12 +1,19 @@
+#i file necessari per l'esame si trovano nella cartella:
+/home/gitpod/datiesame
 
-cd /workspaces/class-rnaseq
+#estrazione dati grezzi dai file .tar.gz all'esame
+mkdir -p rawd_ata
+tar -xvzf data_rnaseq.tar.gz -C raw_data/
+
+#let's start
+cd /workspaces/class-rnaseq  #/home/gitpod/datiesame
 mkdir -p analysis
 cd analysis
 
 ## instead of copying - we create symbolic links to the original reads
 mkdir reads
 cd reads
-ln -s /workspaces/class-rnaseq/datasets-class-rnaseq/raw_data/* .
+ln -s /workspaces/class-rnaseq/datasets-class-rnaseq/raw_data/* . #all'esame non è questo il percorso, sarà tipo /home/gitpod/datiesame/raw_data
 
 ### check if you can execute salmon by typing "salmon" on the terminal
 ## sometimes it fails on RStudio terminal, on CodeSpaces while it works on GitPod
