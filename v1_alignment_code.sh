@@ -16,7 +16,7 @@ cd alignment
 bwa mem \
 -t 2 \
 -R "@RG\tID:sim\tSM:normal\tPL:illumina\tLB:sim" \
-/workspaces/class-variantcalling/reference_chr21/sequence/Homo_sapiens_assembly38_chr21.fasta \
+/workspaces/class-variantcalling/reference_chr21/sequence/Homo_sapiens_assembly38_chr21.fasta \  # <- for chr 21
 /workspaces/class-variantcalling/analysis/raw_data/normal_1.000+disease_0.000_1.fq.gz \
 /workspaces/class-variantcalling/analysis/raw_data/normal_1.000+disease_0.000_2.fq.gz \
 | samtools view -@ 8 -bhS -o normal.bam -
@@ -60,7 +60,7 @@ gatk MarkDuplicates \
 
 gatk BaseRecalibrator \
    -I normal_md.bam \
-   -R /workspaces/class-variantcalling/reference_chr21/sequence/Homo_sapiens_assembly38_chr21.fasta \
+   -R /workspaces/class-variantcalling/reference_chr21/sequence/Homo_sapiens_assembly38_chr21.fasta \  # <- check chr 21 or 22 and the correct dbsnp
    --known-sites /workspaces/class-variantcalling/reference_chr21/gatkbundle/dbsnp_146.hg38_chr21.vcf.gz \
    --known-sites /workspaces/class-variantcalling/reference_chr21/gatkbundle/Mills_and_1000G_gold_standard.indels.hg38_chr21.vcf.gz \
    -O normal_recal_data.table
