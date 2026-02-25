@@ -37,7 +37,7 @@ ego <- enrichGO( gene = sig_genes,
                  universe = unique(tx2gene$GENEID), # <- if using other chrs use universe = unique(tx2gene$gene_id)
                  OrgDb = org.Hs.eg.db,
                  keyType = 'ENSEMBL',
-                 ont = "BP",
+                 ont = "BP", # <- if the result is 0 and dotplot(ego) is empty try with ont = "MF", or "CC"
                  pAdjustMethod = "BH",
                  pvalueCutoff  = 0.05)
 
@@ -65,7 +65,7 @@ gda <- read_tsv(gzfile("/workspaces/class-rnaseq/reference_chr21/transcriptome/a
 disease2gene=gda[, c("diseaseId", "geneId")]
 disease2name=gda[, c("diseaseId", "diseaseName")]
 
-disgnet = enricher(entrez_genes_sig, TERM2GENE=disease2gene, TERM2NAME=disease2name)
+disgnet = enricher(entrez_genes_sig, TERM2GENE=disease2gene, TERM2NAME=disease2name) # <- if ego result is 0 this plot can't be done
 
 ## writeLines(summary(disgnet), "summary_disgnet.txt")
 
