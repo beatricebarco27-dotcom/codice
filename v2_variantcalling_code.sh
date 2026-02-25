@@ -29,7 +29,7 @@ gatk --java-options "-Xmx4g -Xms4g" GenomicsDBImport \
       -V disease.g.vcf.gz \
       --genomicsdb-workspace-path compared_db \
       --tmp-dir /workspaces/class-variantcalling/analysis/variants/tmp \
-      -L chr21
+      -L chr21    # <- if the analysis is on chr 22 write -L chr22
 
 ### finally we can call the genotypes jointly
 gatk --java-options "-Xmx4g" GenotypeGVCFs \
