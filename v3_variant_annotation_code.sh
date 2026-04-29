@@ -27,4 +27,5 @@ SnpSift extractFields \
 -s "," -e "." \
 filtered_variants.vcf \
 "CHROM" "POS" "ID" "REF" "ALT" "GEN[*].GT" ANN[0].GENE ANN[0].EFFECT \
-| column -t
+| column -t > tab_varianti_candidate.vcf
+
